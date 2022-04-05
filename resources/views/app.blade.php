@@ -10,6 +10,8 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
         <!-- Styles -->
+        <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.1/dist/flowbite.min.css" />
+        <script src="https://kit.fontawesome.com/79cb38c0b4.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
         <!-- Scripts -->
@@ -22,5 +24,6 @@
         @env ('local')
             <script src="http://localhost:8080/js/bundle.js"></script>
         @endenv
+        <script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>
     </body>
 </html>

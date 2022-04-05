@@ -2,6 +2,7 @@
 <?php
 
 use App\Http\Controllers\TopicController;
+use App\Http\Controllers\ClientsController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -31,6 +32,13 @@ Route::get('/topics/{topic}/edit', [TopicController::class,'edit'])->middleware(
 Route::get('/topics/create', [TopicController::class,'create'])->middleware(['auth', 'verified'])->name('topics.create');
 Route::put('/topics/{topic}', [TopicController::class,'update'])->middleware(['auth', 'verified'])->name('topics.update');
 Route::delete('/topics/{topic}', [TopicController::class,'destroy'])->middleware(['auth', 'verified'])->name('topics.destroy');
+
+Route::get('/clients', [ClientsController::class,'index'])->middleware(['auth', 'verified'])->name('clients.index');
+Route::get('/clients/create', [ClientsController::class,'create'])->middleware(['auth', 'verified'])->name('clients.create');
+Route::post('/clients', [ClientsController::class,'store'])->middleware(['auth', 'verified'])->name('clients.store');
+Route::delete('/clients/{client}', [ClientsController::class,'destroy'])->middleware(['auth', 'verified'])->name('clients.destroy');
+Route::get('/clients/{client}/edit', [ClientsController::class,'edit'])->middleware(['auth', 'verified'])->name('clients.edit');
+Route::put('/clients/{client}', [ClientsController::class,'update'])->middleware(['auth', 'verified'])->name('clients.update');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
