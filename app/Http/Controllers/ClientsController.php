@@ -112,6 +112,7 @@ class ClientsController extends Controller
             'friday' => Request::input('friday'),
             'status' => Request::input('status'),
         ]);
+        //return redirect()->back()->withErrors(['company'=>'test']);
         return Redirect::route('clients.index');
     }
 

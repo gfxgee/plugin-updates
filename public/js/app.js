@@ -22449,42 +22449,24 @@ __webpack_require__.r(__webpack_exports__);
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
     expose();
-    var porps = __props; // set the modal menu element
-
-    var targetEl = document.getElementById('modalEl'); // options with default values
-
-    var options = {
-      placement: 'bottom-right',
-      backdropClasses: 'bg-gray-900 bg-opacity-50 dark:bg-opacity-80 fixed inset-0 z-40',
-      onHide: function onHide() {
-        console.log('modal is hidden');
-      },
-      onShow: function onShow() {
-        console.log('modal is shown');
-      },
-      onToggle: function onToggle() {
-        console.log('modal has been toggled');
-      }
-    };
-    var modal = new Modal(targetEl, options);
+    var porps = __props;
     var client_id = '';
 
     function setClientId($id) {
-      modal.show();
       client_id = $id;
     }
 
     function deleteClient() {
       _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__.Inertia.post("/clients/".concat(client_id), {
-        _method: 'delete'
+        _method: 'delete',
+        preserveScroll: true
+      }, {
+        resetOnSuccess: false
       });
     }
 
     var __returned__ = {
       porps: porps,
-      targetEl: targetEl,
-      options: options,
-      modal: modal,
       client_id: client_id,
       setClientId: setClientId,
       deleteClient: deleteClient,
