@@ -102,7 +102,7 @@ class ClientsController extends Controller
      */
     public function update( Clients $client)
     {
-        $client->update([
+        /*$client->update([         
             'name' => Request::input('name'),
             'website' => Request::input('website'),
             'monday' => Request::input('monday'),
@@ -111,9 +111,21 @@ class ClientsController extends Controller
             'thursday' => Request::input('thursday'),
             'friday' => Request::input('friday'),
             'status' => Request::input('status'),
-        ]);
-        //return redirect()->back()->withErrors(['company'=>'test']);
-        return Redirect::route('clients.index');
+        ]);*/
+        $client->update(
+            Request::validate([
+            'name' => ['required', 'max:50'],
+            'website' => ['required', 'max:50'],
+            'monday' => ['nullable'],
+            'tuesday' => ['nullable'],
+            'wednesday' => ['nullable'],
+            'thursday' => ['nullable'],
+            'friday' => ['nullable'],
+            'status' => ['nullable'],
+            ])
+        );
+        return Redirect::back()->with('success', 'Contact updated.');
+        //return Redirect::route('clients.index');
     }
 
     /**
@@ -126,6 +138,6 @@ class ClientsController extends Controller
     {
         
         $client->delete();
-        return Redirect::route('topics.index');
+        return Redirect::back()->with('success', 'Contact deleted.');
     }
 }

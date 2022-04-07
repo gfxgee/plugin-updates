@@ -1,11 +1,12 @@
 <script setup>
-import { Link, Head, useForm } from '@inertiajs/inertia-vue3';
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
+import { Link, Head, useForm } from '@inertiajs/inertia-vue3';
 import { Inertia } from '@inertiajs/inertia';
 
 const props = defineProps({
     client: Object,
-    errors: Object
+    errors: Object,
+    success: Array
 })
 
 const form = useForm({
@@ -30,10 +31,15 @@ function submit() {
             thursday: form.thursday,
             friday: form.friday,
             status: (form.status) ? 'active' : 'inactive',
+    },
+    onSuccess: () => {
+                    success = 1;
+                    console.log(success);
     })
 }
-
 </script>
+
+
 <template>
     <Head title="Clients Edit" />
 
