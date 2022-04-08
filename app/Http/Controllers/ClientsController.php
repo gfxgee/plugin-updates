@@ -124,8 +124,8 @@ class ClientsController extends Controller
             'status' => ['nullable'],
             ])
         );
-        return Redirect::back()->with('success', 'Contact updated.');
-        //return Redirect::route('clients.index');
+        //return Redirect::back()->with('success', 'Contact updated.');
+        return Redirect::route('clients.index');
     }
 
     /**

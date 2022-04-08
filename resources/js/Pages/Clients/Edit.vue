@@ -21,8 +21,7 @@ const form = useForm({
 })
 
 function submit() {
-    Inertia.post(`/clients/${props.client.id}`, {
-        _method: 'put',
+    Inertia.put(`/clients/${props.client.id}`, {
             name: form.name,
             website: form.website,
             monday: form.monday,
@@ -31,10 +30,6 @@ function submit() {
             thursday: form.thursday,
             friday: form.friday,
             status: (form.status) ? 'active' : 'inactive',
-    },
-    onSuccess: () => {
-                    success = 1;
-                    console.log(success);
     })
 }
 </script>
