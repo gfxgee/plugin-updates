@@ -16,7 +16,21 @@ class ClientsController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Clients/Index', [
+        $clients = Clients::paginate(4)->through(function ($client) {
+            return [
+                'id' => $client->id,
+                'name' => $client->name,
+                'website' => $client->website,
+                'monday' => $client->monday,
+                'tuesday' => $client->tuesday,
+                'wednesday' => $client->wednesday,
+                'thursday' => $client->thursday,
+                'friday' => $client->friday,
+                'status' => $client->status,
+            ];
+        });
+        return Inertia::render('Clients/Index', ['clients' => $clients]);
+        /*return Inertia::render('Clients/Index', [
             'clients' => Clients::all()->map(function($client){
                 return [
                     'id' => $client->id,
@@ -30,7 +44,7 @@ class ClientsController extends Controller
                     'status' => $client->status,
                 ];
             })
-        ]);
+        ]);*/
     }
 
     /**

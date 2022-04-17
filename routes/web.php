@@ -40,6 +40,8 @@ Route::delete('/clients/{client}', [ClientsController::class,'destroy'])->middle
 Route::get('/clients/{client}/edit', [ClientsController::class,'edit'])->middleware(['auth', 'verified'])->name('clients.edit');
 Route::put('/clients/{client}', [ClientsController::class,'update'])->middleware(['auth', 'verified'])->name('clients.update');
 
+Route::get('/users',[\App\Http\Controllers\UserlistController::class,'index'])->name('users.index');
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

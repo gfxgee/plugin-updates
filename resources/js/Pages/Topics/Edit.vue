@@ -2,6 +2,7 @@
 import { Link, Head, useForm } from '@inertiajs/inertia-vue3';
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import { Inertia } from '@inertiajs/inertia';
+import DashboardLayout from '@/Layouts/Dashboard';
 const props = defineProps({
     topic: Object,
     image: String
@@ -23,7 +24,7 @@ function updateTopic() {
 <template>
     <Head title="Topics Edit" />
 
-    <BreezeAuthenticatedLayout>
+    <DashboardLayout>
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 Topics Index > Edit
@@ -63,5 +64,5 @@ function updateTopic() {
                 </div>
             </div>
         </div>
-    </BreezeAuthenticatedLayout>
+    </DashboardLayout>
 </template>

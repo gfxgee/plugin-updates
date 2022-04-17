@@ -1,6 +1,7 @@
 <script setup>
 import { Link, Head, useForm } from '@inertiajs/inertia-vue3';
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
+import DashboardLayout from '@/Layouts/Dashboard';
 
 const props = defineProps({
     errors: Object,
@@ -17,7 +18,7 @@ function submit() {
 <template>
     <Head title="Topics Create" />
 
-    <BreezeAuthenticatedLayout>
+    <DashboardLayout>
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 Topics Index > Create
@@ -58,5 +59,5 @@ function submit() {
                 </div>
             </div>
         </div>
-    </BreezeAuthenticatedLayout>
+    </DashboardLayout>
 </template>

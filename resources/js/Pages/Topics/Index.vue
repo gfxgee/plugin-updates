@@ -1,5 +1,6 @@
 <script setup>
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
+import DashboardLayout from '@/Layouts/Dashboard';
 import { Head, Link } from '@inertiajs/inertia-vue3';
 
 const porps = defineProps({
@@ -10,7 +11,7 @@ const porps = defineProps({
 <template>
     <Head title="Topics" />
 
-    <BreezeAuthenticatedLayout>
+    <DashboardLayout>
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 Topics Index
@@ -58,5 +59,5 @@ const porps = defineProps({
 
             </div>
         </div>
-    </BreezeAuthenticatedLayout>
+    </DashboardLayout>
 </template>
